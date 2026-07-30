@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: 'Isa Muhammad | Portfolio - Fullstack Developer & System Analyst',
   description: 'Portofolio interaktif Isa Muhammad - Mahasiswa Teknologi Rekayasa Perangkat Lunak UGM. Spesialis Fullstack Development, System Architecture, Data Mining, dan AI Automation.',
   keywords: ['Isa Muhammad', 'UGM', 'Software Engineering', 'Fullstack Developer', 'System Analyst', 'AI Automation', 'Laravel', 'Next.js', 'ASP.NET'],
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
 };
 
 export default function RootLayout({
