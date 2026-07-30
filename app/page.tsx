@@ -446,19 +446,13 @@ export default function PortfolioPage() {
           }`}
         >
           <a href="#hero" className="flex items-center gap-3 group">
-            <div className="w-9.5 h-9.5 rounded-full bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 p-0.5 shadow-md shadow-indigo-500/20 group-hover:scale-110 transition-transform overflow-hidden">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 p-0.5 shadow-md shadow-indigo-500/20 group-hover:scale-110 transition-transform">
               <div
-                className={`w-full h-full rounded-full flex items-center justify-center transition-colors duration-500 overflow-hidden ${
+                className={`w-full h-full rounded-full flex items-center justify-center transition-colors duration-500 ${
                   theme === "dark" ? "bg-slate-950/90" : "bg-white/90"
                 }`}
               >
-                <Image
-                  src="/avatar-icon.png"
-                  alt="Isa Muhammad Avatar Icon"
-                  width={36}
-                  height={36}
-                  className="w-full h-full object-cover rounded-full"
-                />
+                <Terminal className="w-4 h-4 text-indigo-500 dark:text-indigo-400 group-hover:text-cyan-400 transition-colors" />
               </div>
             </div>
             <div>
