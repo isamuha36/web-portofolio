@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-rgb: 248, 250, 252;
+}
+
+.dark {
+  --foreground-rgb: 248, 250, 252;
+  --background-rgb: 2, 6, 23;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Smooth Theme Transition on Card & Borders */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Disable transition on particle trails so particle animations are instant and fluid */
+.particle-trail {
+  transition: none !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* --- ANIMATED LARGE HERO GRID (SIZE 60px WITH SLOW PANNING ANIMATION) --- */
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+.dark .hero-grid-pattern {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.28) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.28) 1.5px, transparent 1.5px);
+  animation: grid-move 10s linear infinite;
+}
+
+.hero-grid-pattern {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.22) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.22) 1.5px, transparent 1.5px);
+  animation: grid-move 10s linear infinite;
+}
+
+/* --- ABOUT SECTION: DIAGONAL STRIPES PATTERN --- */
+.dark .pattern-diagonal {
+  background-image: repeating-linear-gradient(45deg, rgba(139, 92, 246, 0.08) 0, rgba(139, 92, 246, 0.08) 1.5px, transparent 0, transparent 28px);
+}
+.pattern-diagonal {
+  background-image: repeating-linear-gradient(45deg, rgba(99, 102, 241, 0.06) 0, rgba(99, 102, 241, 0.06) 1.5px, transparent 0, transparent 28px);
+}
+
+/* --- EXPERIENCE SECTION: POLKA DOT MATRIX PATTERN --- */
+.dark .pattern-dots {
+  background-image: radial-gradient(rgba(168, 85, 247, 0.22) 2px, transparent 2px);
+  background-size: 32px 32px;
+}
+.pattern-dots {
+  background-image: radial-gradient(rgba(99, 102, 241, 0.18) 2px, transparent 2px);
+  background-size: 32px 32px;
+}
+
+/* --- PROJECTS SECTION: TECH CROSSHAIR / MATRIX GRID PATTERN --- */
+.dark .pattern-crosshair {
+  background-image: 
+    radial-gradient(rgba(6, 182, 212, 0.25) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.pattern-crosshair {
+  background-image: 
+    radial-gradient(rgba(6, 182, 212, 0.2) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* --- SKILLS SECTION: FUTURISTIC TECH CONSTELLATION NODE NETWORK PATTERN --- */
+.dark .pattern-constellation {
+  background-image: 
+    radial-gradient(circle at center, rgba(16, 185, 129, 0.35) 2.5px, transparent 2.5px),
+    linear-gradient(45deg, rgba(6, 182, 212, 0.1) 1.5px, transparent 1.5px),
+    linear-gradient(-45deg, rgba(99, 102, 241, 0.1) 1.5px, transparent 1.5px);
+  background-size: 40px 40px, 40px 40px, 40px 40px;
+}
+
+.pattern-constellation {
+  background-image: 
+    radial-gradient(circle at center, rgba(16, 185, 129, 0.25) 2.5px, transparent 2.5px),
+    linear-gradient(45deg, rgba(6, 182, 212, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(-45deg, rgba(99, 102, 241, 0.08) 1.5px, transparent 1.5px);
+  background-size: 40px 40px, 40px 40px, 40px 40px;
+}
+
+/* --- CONTACT SECTION: HEXAGONAL PULSE MESH PATTERN --- */
+.dark .pattern-hex {
+  background-image: 
+    radial-gradient(rgba(236, 72, 153, 0.22) 2px, transparent 2px),
+    radial-gradient(rgba(99, 102, 241, 0.18) 1.5px, transparent 1.5px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+.pattern-hex {
+  background-image: 
+    radial-gradient(rgba(236, 72, 153, 0.16) 2px, transparent 2px),
+    radial-gradient(rgba(99, 102, 241, 0.14) 1.5px, transparent 1.5px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* --- GLASS CARDS --- */
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-card-hover:hover {
+  border-color: rgba(129, 140, 248, 0.5);
+  box-shadow: 0 0 30px -5px rgba(99, 102, 241, 0.25);
+  transform: translateY(-3px);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 12px 30px -5px rgba(99, 102, 241, 0.15);
+  transform: translateY(-3px);
+}
