@@ -1550,13 +1550,57 @@ export default function PortfolioPage() {
               </div>
             </div>
 
-            <div className="relative w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-[8.5/11] min-h-[600px]">
+            {/* Desktop: Show iframe preview */}
+            <div className="hidden md:block relative w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-[8.5/11] min-h-[600px]">
               <iframe
                 src="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/preview"
                 className="w-full h-full border-0"
                 title="Isa Muhammad CV Preview"
                 allow="autoplay"
               />
+            </div>
+
+            {/* Mobile: Show action buttons instead of broken iframe */}
+            <div
+              className={`md:hidden flex flex-col items-center justify-center gap-6 rounded-xl border p-8 text-center transition-colors duration-500 ${
+                theme === "dark"
+                  ? "bg-slate-950/80 border-slate-800"
+                  : "bg-white border-slate-200"
+              }`}
+            >
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+                <FileText className="w-10 h-10 text-white" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-lg font-bold">Curriculum Vitae</h3>
+                <p className={`text-sm ${theme === "dark" ? "text-slate-400" : "text-slate-500"}`}>
+                  Buka dokumen CV untuk melihat secara lengkap.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs">
+                <a
+                  href="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/edit?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Buka CV</span>
+                </a>
+                <a
+                  href="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/export?format=pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl border text-sm font-semibold transition-all duration-300 hover:scale-105 ${
+                    theme === "dark"
+                      ? "border-slate-700 text-slate-300 hover:bg-slate-800"
+                      : "border-slate-300 text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download PDF</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
