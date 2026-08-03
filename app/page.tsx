@@ -421,13 +421,24 @@ export default function PortfolioPage() {
       ? projectsData
       : projectsData.filter((p) => p.category === activeFilter);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 4000);
+    try {
+      const res = await fetch("https://formspree.io/f/mnjeeozy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        }, 4000);
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+    }
   };
 
   return (
