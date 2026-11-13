@@ -450,6 +450,11 @@ export default function PortfolioPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Hero Section Dynamic Color Particle Trail State
   const heroRef = useRef<HTMLDivElement>(null);
@@ -1799,30 +1804,62 @@ export default function PortfolioPage() {
               </div>
             </div>
 
-            {/* Desktop: Show interactive PDF object/iframe preview */}
-            <div className="relative w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-[8.5/11] min-h-[620px]">
-              <object
-                data="/cv.pdf#toolbar=1&navpanes=0&scrollbar=1"
-                type="application/pdf"
-                className="w-full h-full"
-              >
+            {/* Desktop: Show interactive PDF preview without inner HTML in iframe */}
+            <div className="hidden md:block relative w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-[8.5/11] min-h-[620px]">
+              {isMounted ? (
                 <iframe
-                  src="/cv.pdf"
-                  className="w-full h-full border-0"
+                  src="/cv.pdf#toolbar=1&navpanes=0&scrollbar=1"
+                  className="w-full h-full border-0 rounded-xl"
                   title="Isa Muhammad CV Preview"
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center gap-3 bg-slate-950 text-slate-400">
+                  <FileText className="w-8 h-8 text-indigo-400 animate-pulse" />
+                  <p className="text-xs font-mono">Memuat preview dokumen CV...</p>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile: Interactive PDF Action Cards */}
+            <div
+              className={`md:hidden flex flex-col items-center justify-center gap-5 rounded-xl border p-6 text-center transition-colors duration-500 ${
+                theme === "dark"
+                  ? "bg-slate-950/80 border-slate-800"
+                  : "bg-white border-slate-200"
+              }`}
+            >
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+                <FileText className="w-8 h-8 text-white" />
+              </div>
+              <div className="space-y-1.5">
+                <h3 className="text-base font-bold">Dokumen Curriculum Vitae</h3>
+                <p className={`text-xs ${theme === "dark" ? "text-slate-400" : "text-slate-600"}`}>
+                  Buka dokumen PDF resmi versi terbaru atau unduh langsung ke perangkat Anda.
+                </p>
+              </div>
+              <div className="flex flex-col gap-2.5 w-full max-w-xs pt-1">
+                <a
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-semibold shadow-md hover:shadow-indigo-500/30 transition-all duration-300"
                 >
-                  <p className="p-8 text-center text-sm text-slate-400">
-                    Browser Anda tidak mendukung preview langsung PDF.{" "}
-                    <a
-                      href="/CV-Isa Muhammad.pdf"
-                      target="_blank"
-                      className="text-indigo-400 underline font-semibold"
-                    >
-                      Klik di sini untuk mengunduh atau membuka file PDF
-                    </a>.
-                  </p>
-                </iframe>
-              </object>
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Buka PDF di Tab Baru</span>
+                </a>
+                <a
+                  href="/CV-Isa Muhammad.pdf"
+                  download="CV-Isa Muhammad.pdf"
+                  className={`flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl border text-xs font-semibold transition-all duration-300 ${
+                    theme === "dark"
+                      ? "border-slate-700 text-slate-200 hover:bg-slate-800"
+                      : "border-slate-300 text-slate-800 hover:bg-slate-50"
+                  }`}
+                >
+                  <Download className="w-4 h-4 text-emerald-500" />
+                  <span>Download File PDF</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
