@@ -38,14 +38,19 @@ import {
   Landmark,
   Coins,
   Brain,
+  MapPin,
+  Globe,
+  Languages,
+  Users,
+  Building2,
 } from "lucide-react";
 
 // --- TYPEWRITER EFFECT HOOK ---
 const roles = [
-  "Project Manager Assistant",
-  "Fullstack Developer",
-  "AI Automation Developer",
+  "Fullstack Engineer",
   "System Analyst",
+  "AI Automation Developer",
+  "Project Manager Assistant",
 ];
 
 function useTypewriter(words: string[], typingSpeed = 90, erasingSpeed = 50, pauseDuration = 1800) {
@@ -94,22 +99,37 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    id: "wims",
-    title: "WIMS - Warehouse & Inventory Management System",
+    id: "gse",
+    title: "Ground Support Equipment (GSE) Management System",
     category: "Fullstack",
-    colorTheme: "from-indigo-500 to-purple-500",
-    tech: ["ASP.NET Core MVC", "Entity Framework Core", "SQLite", "PostgreSQL", "Bootstrap 5"],
+    colorTheme: "from-sky-500 to-blue-600",
+    tech: ["Laravel", "RESTful API", "MySQL", "SRS / PRD", "System Architecture"],
     description:
-      "Enterprise-grade warehouse and inventory management system built with ASP.NET Core MVC and Entity Framework Core. Designed the data layer with SQLite/PostgreSQL and built a Bootstrap 5 dark-themed interface.",
+      "Leading a cross-functional team developing a GSE management system for an airport operator covering equipment tracking, airside access permits, smart card requests, and operational dashboards across 13 functional modules.",
     features: [
-      "Enterprise inventory tracking & stock movement logs",
-      "Relational data abstraction layer using Entity Framework Core",
-      "Support for multi-database backends (SQLite for dev, PostgreSQL for production)",
-      "Bootstrap 5 dark theme tailored for warehouse operations",
+      "Translated terms of reference into comprehensive PRD and functional specifications",
+      "Designed & engineered a 13-module Laravel web app delivered on a 120-day schedule",
+      "Airside access permits & smart card requests processing workflows",
+      "Overseeing technical architecture, UAT milestones, and deployment readiness",
     ],
     year: "2026",
-    role: "Fullstack Developer",
-    githubUrl: "https://github.com/isamuha36",
+    role: "System Analyst & Fullstack Engineer",
+  },
+  {
+    id: "berkahrir",
+    title: "Berkahrir Project",
+    category: "Management",
+    colorTheme: "from-teal-500 to-emerald-600",
+    tech: ["Career Mentorship", "Talent Development", "Program Management", "Community"],
+    description:
+      "Co-founded a Muslim career-development initiative for final-year students and fresh graduates, running FCD, a free 4-session offline pilot program on career anchors, skill-gap analysis, CV/LinkedIn branding, and interview readiness.",
+    features: [
+      "Co-founded Muslim career development initiative for graduating university students",
+      "Orchestrated free 4-session Future Career Discovery (FCD) offline pilot curriculum",
+      "Conducted skill-gap analysis, CV/LinkedIn personal branding, and interview simulations",
+    ],
+    year: "2026",
+    role: "Co-Founder",
   },
   {
     id: "ciwiru",
@@ -124,6 +144,24 @@ const projectsData: Project[] = [
       "Interactive village budget & demographics analytics using Recharts",
       "Containerized architecture with Docker for seamless cross-platform deployment",
       "Prisma ORM integration with MariaDB for optimized query performance",
+    ],
+    year: "2026",
+    role: "Fullstack Developer",
+    githubUrl: "https://github.com/isamuha36",
+  },
+  {
+    id: "wims",
+    title: "WIMS - Warehouse & Inventory Management System",
+    category: "Fullstack",
+    colorTheme: "from-indigo-500 to-purple-500",
+    tech: ["ASP.NET Core MVC", "Entity Framework Core", "SQLite", "PostgreSQL", "Bootstrap 5"],
+    description:
+      "Enterprise-grade warehouse and inventory management system built with ASP.NET Core MVC and Entity Framework Core. Designed the data layer with SQLite/PostgreSQL and built a Bootstrap 5 dark-themed interface.",
+    features: [
+      "Enterprise inventory tracking & stock movement logs",
+      "Relational data abstraction layer using Entity Framework Core",
+      "Support for multi-database backends (SQLite for dev, PostgreSQL for production)",
+      "Bootstrap 5 dark theme tailored for warehouse operations",
     ],
     year: "2026",
     role: "Fullstack Developer",
@@ -208,11 +246,25 @@ interface Experience {
 
 const experiencesData: Experience[] = [
   {
-    title: "System Analyst & Technical Writer Intern",
+    title: "System Analyst & Fullstack Engineer",
+    organization: "PT Global Data Inspirasi",
+    period: "Aug 2026 – Present",
+    type: "Industry",
+    badgeStyle:
+      "bg-sky-500/10 text-sky-600 border-sky-500/30 dark:bg-sky-950 dark:text-sky-300 dark:border-sky-800",
+    icon: <Building2 className="w-5 h-5 text-sky-500 dark:text-sky-400" />,
+    points: [
+      "Lead requirements analysis for a Ground Support Equipment (GSE) management system for an airport operator, translating the terms of reference into a PRD, technical documentation, and module specifications.",
+      "Design and develop a Laravel-based web application covering 13 functional modules, delivered within a 120-day timeline.",
+    ],
+  },
+  {
+    title: "System Analyst",
     organization: "PT Madana Innovation Technology",
     period: "Jan 2026 – Jun 2026",
     type: "Internship",
-    badgeStyle: "bg-indigo-500/10 text-indigo-500 border-indigo-500/30 dark:bg-indigo-950 dark:text-indigo-300 dark:border-indigo-800",
+    badgeStyle:
+      "bg-indigo-500/10 text-indigo-500 border-indigo-500/30 dark:bg-indigo-950 dark:text-indigo-300 dark:border-indigo-800",
     icon: <Briefcase className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />,
     points: [
       "Analyzed system requirements from stakeholders and translated them into comprehensive Software Requirements Specifications (SRS).",
@@ -220,24 +272,12 @@ const experiencesData: Experience[] = [
     ],
   },
   {
-    title: "Hustler / Product Lead",
-    organization: "Google Developer Group (GDG) on Campus UGM",
-    period: "Nov 2024 – Jun 2025",
-    type: "Leadership",
-    badgeStyle: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800",
-    icon: <Sparkles className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />,
-    points: [
-      "Conducted in-depth research and analysis of SDGs-related issues, including market sizing and competitive landscape to identify technology opportunities.",
-      "Developed work plans, managed project timelines, and ensured project stages met target deliverables.",
-      "Proactively guided team dynamics to maintain high productivity.",
-    ],
-  },
-  {
     title: "Lab Assistant",
     organization: "Departemen Layanan dan Informasi Kesehatan SV UGM",
     period: "Jan 2026 – Jun 2026",
     type: "Academic",
-    badgeStyle: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30 dark:bg-cyan-950 dark:text-cyan-300 dark:border-cyan-800",
+    badgeStyle:
+      "bg-cyan-500/10 text-cyan-600 border-cyan-500/30 dark:bg-cyan-950 dark:text-cyan-300 dark:border-cyan-800",
     icon: <GraduationCap className="w-5 h-5 text-cyan-500 dark:text-cyan-400" />,
     points: [
       "Guided students through hands-on laboratory sessions for Data Mining and Web Programming courses.",
@@ -249,10 +289,23 @@ const experiencesData: Experience[] = [
     organization: "Departemen Teknik Elektro dan Informatika SV UGM",
     period: "Jan 2025 – Jun 2026",
     type: "Academic",
-    badgeStyle: "bg-purple-500/10 text-purple-600 border-purple-500/30 dark:bg-purple-950 dark:text-purple-300 dark:border-purple-800",
+    badgeStyle:
+      "bg-purple-500/10 text-purple-600 border-purple-500/30 dark:bg-purple-950 dark:text-purple-300 dark:border-purple-800",
     icon: <Cpu className="w-5 h-5 text-purple-500 dark:text-purple-400" />,
     points: [
       "Guided students through hands-on laboratory sessions for Information Technology, Computer Installation, and Data Structures courses.",
+    ],
+  },
+  {
+    title: "Deputy Head of Administration and Housekeeping Division",
+    organization: "Jama'ah Shalahuddin",
+    period: "Jan 2024 – Feb 2026",
+    type: "Organization",
+    badgeStyle:
+      "bg-rose-500/10 text-rose-600 border-rose-500/30 dark:bg-rose-950 dark:text-rose-300 dark:border-rose-800",
+    icon: <Landmark className="w-5 h-5 text-rose-500 dark:text-rose-400" />,
+    points: [
+      "Facilitated secretariat duties by preparing administrative reports, organizing meeting schedules, and coordinating cross-divisional operations.",
     ],
   },
   {
@@ -260,33 +313,25 @@ const experiencesData: Experience[] = [
     organization: "Komunitas Mahasiswa TIK UGM",
     period: "Nov 2024 – Oct 2025",
     type: "Community",
-    badgeStyle: "bg-fuchsia-500/10 text-fuchsia-600 border-fuchsia-500/30 dark:bg-fuchsia-950 dark:text-fuchsia-300 dark:border-fuchsia-800",
+    badgeStyle:
+      "bg-fuchsia-500/10 text-fuchsia-600 border-fuchsia-500/30 dark:bg-fuchsia-950 dark:text-fuchsia-300 dark:border-fuchsia-800",
     icon: <Brain className="w-5 h-5 text-fuchsia-500 dark:text-fuchsia-400" />,
     points: [
       "Actively participated in dedicated learning seasons, deepening knowledge in data science, predictive modeling, and machine learning workflows.",
     ],
   },
   {
-    title: "Deputy Head of Administration and Housekeeping Division",
-    organization: "Jama'ah Shalahuddin UGM",
-    period: "Jan 2024 – Feb 2026",
-    type: "Organization",
-    badgeStyle: "bg-rose-500/10 text-rose-600 border-rose-500/30 dark:bg-rose-950 dark:text-rose-300 dark:border-rose-800",
-    icon: <Landmark className="w-5 h-5 text-rose-500 dark:text-rose-400" />,
+    title: "Hustler / Product Lead",
+    organization: "Google Developer Group on Campus UGM",
+    period: "Nov 2024 – Jun 2025",
+    type: "Leadership",
+    badgeStyle:
+      "bg-emerald-500/10 text-emerald-600 border-emerald-500/30 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800",
+    icon: <Sparkles className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />,
     points: [
-      "Facilitated secretariat duties by preparing administrative reports, organizing meeting schedules, and coordinating cross-divisional operations.",
-    ],
-  },
-  {
-    title: "Staff of Finance",
-    organization: "Ramadhan di Kampus UGM",
-    period: "May 2024 – Jul 2024",
-    type: "Committee",
-    badgeStyle: "bg-amber-500/10 text-amber-600 border-amber-500/30 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-800",
-    icon: <Coins className="w-5 h-5 text-amber-500 dark:text-amber-400" />,
-    points: [
-      "Managed financial operations including budget planning, expense tracking, and transparent reporting.",
-      "Successfully achieved the funding target of IDR 115,881,202 for event execution.",
+      "Conducted in-depth research and analysis of SDGs-related issues, including market sizing and competitive landscape to identify technology opportunities.",
+      "Developed work plans, managed project timelines, and ensured project stages met target deliverables.",
+      "Proactively guided team dynamics to maintain high productivity.",
     ],
   },
   {
@@ -294,10 +339,24 @@ const experiencesData: Experience[] = [
     organization: "Rumah ZIS UGM",
     period: "Sep 2024 – Present",
     type: "Social Work",
-    badgeStyle: "bg-teal-500/10 text-teal-600 border-teal-500/30 dark:bg-teal-950 dark:text-teal-300 dark:border-teal-800",
+    badgeStyle:
+      "bg-teal-500/10 text-teal-600 border-teal-500/30 dark:bg-teal-950 dark:text-teal-300 dark:border-teal-800",
     icon: <HeartHandshake className="w-5 h-5 text-teal-500 dark:text-teal-400" />,
     points: [
       "Distributed zakat in the form of financial aid and essential goods to qualified recipients across Yogyakarta.",
+    ],
+  },
+  {
+    title: "Staff of Finance",
+    organization: "Ramadhan di Kampus UGM",
+    period: "May 2024 – Jul 2024",
+    type: "Committee",
+    badgeStyle:
+      "bg-amber-500/10 text-amber-600 border-amber-500/30 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-800",
+    icon: <Coins className="w-5 h-5 text-amber-500 dark:text-amber-400" />,
+    points: [
+      "Managed financial operations including budget planning, expense tracking, and transparent reporting.",
+      "Successfully achieved the funding target of IDR 115,881,202 for event execution.",
     ],
   },
 ];
@@ -315,6 +374,7 @@ const skillCategories = [
       { name: "JavaScript", color: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/30" },
       { name: "TypeScript", color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/30" },
       { name: "C#", color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30" },
+      { name: "SQL", color: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/30" },
     ],
   },
   {
@@ -328,7 +388,7 @@ const skillCategories = [
       { name: "ASP.NET Core MVC", color: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/30" },
       { name: "Entity Framework Core", color: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/30" },
       { name: "Prisma ORM", color: "bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-500/30" },
-      { name: "Bootstrap", color: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/30" },
+      { name: "Bootstrap 5", color: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/30" },
       { name: "Tailwind CSS", color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/30" },
     ],
   },
@@ -348,6 +408,11 @@ const skillCategories = [
     icon: <Cpu className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />,
     accent: "border-emerald-500/30 hover:border-emerald-500",
     skills: [
+      { name: "Antigravity", color: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/30 font-semibold" },
+      { name: "Claude Code", color: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30 font-semibold" },
+      { name: "Gemini", color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/30 font-semibold" },
+      { name: "ChatGPT", color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 font-semibold" },
+      { name: "CapCut", color: "bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/30" },
       { name: "Docker", color: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/30" },
       { name: "Git / GitHub", color: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/30" },
       { name: "Trello", color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/30" },
@@ -355,11 +420,16 @@ const skillCategories = [
       { name: "Figma", color: "bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/30" },
       { name: "VS Code", color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/30" },
       { name: "Android Studio", color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30" },
-      { name: "Claude API", color: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30" },
-      { name: "Gemini API", color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/30" },
       { name: "n8n", color: "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/30" },
     ],
   },
+];
+
+const languageSkills = [
+  { language: "Bahasa Indonesia", level: "Native", color: "text-emerald-500 dark:text-emerald-400", badge: "bg-emerald-500/10 border-emerald-500/30" },
+  { language: "English", level: "Intermediate", color: "text-indigo-500 dark:text-indigo-400", badge: "bg-indigo-500/10 border-indigo-500/30" },
+  { language: "Arabic", level: "Elementary", color: "text-purple-500 dark:text-purple-400", badge: "bg-purple-500/10 border-purple-500/30" },
+  { language: "Javanese", level: "Native / Mother Tongue", color: "text-amber-500 dark:text-amber-400", badge: "bg-amber-500/10 border-amber-500/30" },
 ];
 
 // --- RAINBOW PARTICLE INTERFACE ---
@@ -452,8 +522,8 @@ export default function PortfolioPage() {
         <header
           className={`pointer-events-auto rounded-full px-6 h-16 sm:h-18 flex items-center justify-between transition-all duration-500 ${
             theme === "dark"
-              ? "bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 shadow-2xl shadow-slate-950/60"
-              : "bg-white/40 backdrop-blur-xl border border-slate-200/70 shadow-xl shadow-slate-200/50"
+              ? "bg-slate-900/60 backdrop-blur-xl border border-slate-700/60 shadow-2xl shadow-slate-950/60"
+              : "bg-white/60 backdrop-blur-xl border border-slate-200/80 shadow-xl shadow-slate-200/50"
           }`}
         >
           <a href="#hero" className="flex items-center gap-3 group">
@@ -471,7 +541,7 @@ export default function PortfolioPage() {
                 Isa Muhammad
               </span>
               <span className="block text-[10px] text-indigo-500 dark:text-indigo-400 font-mono tracking-wider">
-                ismhmmd.dev
+                ismhmmd.web.id
               </span>
             </div>
           </a>
@@ -519,12 +589,12 @@ export default function PortfolioPage() {
             </button>
 
             <a
-              href="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/export?format=pdf"
+              href="/CV-Isa Muhammad.pdf"
               target="_blank"
               rel="noreferrer"
               className={`hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-full border transition-all duration-300 ${
                 theme === "dark"
-                  ? "text-slate-200 bg-slate-900/60 border-slate-700/60 hover:border-indigo-500/50 hover:bg-slate-800/80"
+                  ? "text-slate-200 bg-slate-900/60 border-slate-700/60 hover:border-indigo-500/50 hover:bg-slate-800/80 shadow-sm"
                   : "text-slate-800 bg-white/70 border-slate-300/80 hover:border-indigo-500 hover:bg-white shadow-xs"
               }`}
             >
@@ -582,7 +652,7 @@ export default function PortfolioPage() {
               ))}
               <div className="pt-2">
                 <a
-                  href="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/export?format=pdf"
+                  href="/CV-Isa Muhammad.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl hover:opacity-95 transition-opacity"
@@ -649,16 +719,28 @@ export default function PortfolioPage() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-7 space-y-6 text-left"
             >
-              {/* Status Badge */}
-              <div
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono transition-colors duration-500 ${
-                  theme === "dark"
-                    ? "bg-indigo-950/80 border-indigo-700/80 text-indigo-300 shadow-lg shadow-indigo-950/50"
-                    : "bg-indigo-50 border-indigo-300 text-indigo-800 shadow-xs"
-                }`}
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400" />
-                <span>Available for Internships & Projects</span>
+              {/* Status Badge & Location */}
+              <div className="flex flex-wrap items-center gap-2">
+                <div
+                  className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono transition-colors duration-500 ${
+                    theme === "dark"
+                      ? "bg-indigo-950/80 border-indigo-700/80 text-indigo-300 shadow-lg shadow-indigo-950/50"
+                      : "bg-indigo-50 border-indigo-300 text-indigo-800 shadow-xs"
+                  }`}
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400" />
+                  <span>Available for Opportunities & Projects</span>
+                </div>
+                <div
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-mono transition-colors duration-500 ${
+                    theme === "dark"
+                      ? "bg-slate-900/80 border-slate-700/80 text-slate-300"
+                      : "bg-white border-slate-300 text-slate-700 shadow-xs"
+                  }`}
+                >
+                  <MapPin className="w-3.5 h-3.5 text-rose-500" />
+                  <span>Purworejo, Jawa Tengah</span>
+                </div>
               </div>
 
               {/* Title & Name */}
@@ -683,15 +765,15 @@ export default function PortfolioPage() {
                   theme === "dark" ? "text-slate-300" : "text-slate-700"
                 }`}
               >
-                Mahasiswa Teknologi Rekayasa Perangkat Lunak{" "}
+                Mahasiswa Sarjana Terapan Teknologi Rekayasa Perangkat Lunak{" "}
                 <strong
                   className={`font-semibold transition-colors duration-500 ${
                     theme === "dark" ? "text-white" : "text-slate-900"
                   }`}
                 >
                   Universitas Gadjah Mada (UGM)
-                </strong>
-                . Berfokus pada full-stack web development, arsitektur sistem, data mining, dan AI automation.
+                </strong>{" "}
+                dengan IPK <span className="font-semibold text-indigo-500 dark:text-indigo-400">3.82 / 4.00</span>. Berfokus pada full-stack web engineering, analisis kebutuhan sistem & PRD/SRS, arsitektur data, dan otomatisasi berbasis AI.
               </p>
 
               {/* Action Buttons */}
@@ -701,7 +783,7 @@ export default function PortfolioPage() {
                   className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 hover:opacity-90 text-white font-semibold text-sm shadow-xl shadow-indigo-500/25 transition-all hover:scale-105"
                 >
                   <Boxes className="w-4 h-4" />
-                  <span>Lihat Proyek</span>
+                  <span>Lihat Proyek (8+)</span>
                 </a>
                 <a
                   href="#cv-preview"
@@ -718,7 +800,7 @@ export default function PortfolioPage() {
 
               {/* Social Channels Pill */}
               <div
-                className={`pt-6 border-t flex items-center gap-4 transition-colors duration-500 ${
+                className={`pt-6 border-t flex flex-wrap items-center gap-4 transition-colors duration-500 ${
                   theme === "dark" ? "border-slate-800/80 text-slate-400" : "border-slate-300 text-slate-600"
                 }`}
               >
@@ -728,7 +810,7 @@ export default function PortfolioPage() {
                 <div className="flex items-center gap-3">
                   <a
                     href="mailto:isamuha36@gmail.com"
-                    title="Email"
+                    title="Email: isamuha36@gmail.com"
                     className={`p-2.5 rounded-xl border transition-all duration-300 ${
                       theme === "dark"
                         ? "bg-slate-900/90 border-slate-800 text-indigo-400 hover:border-indigo-500 hover:bg-indigo-950/40"
@@ -741,8 +823,8 @@ export default function PortfolioPage() {
                     href="https://wa.me/62895365540817"
                     target="_blank"
                     rel="noreferrer"
-                    title="WhatsApp"
-                    className={`p-2.5 rounded-lg border transition-all duration-300 ${
+                    title="WhatsApp: +62 8953 6554 0817"
+                    className={`p-2.5 rounded-xl border transition-all duration-300 ${
                       theme === "dark"
                         ? "bg-slate-900/90 border-slate-800 text-emerald-400 hover:border-emerald-500 hover:bg-emerald-950/40"
                         : "bg-white border-slate-200 text-emerald-600 hover:border-emerald-300 shadow-xs"
@@ -751,24 +833,11 @@ export default function PortfolioPage() {
                     <Phone className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://github.com/isamuha36"
+                    href="https://linkedin.com/in/isamuhammad"
                     target="_blank"
                     rel="noreferrer"
-                    title="GitHub"
-                    className={`p-2.5 rounded-lg border transition-all duration-300 ${
-                      theme === "dark"
-                        ? "bg-slate-900/90 border-slate-800 text-slate-200 hover:border-slate-500 hover:bg-slate-800"
-                        : "bg-white border-slate-200 text-slate-800 hover:border-slate-400 shadow-xs"
-                    }`}
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/isa-muhammad010325"
-                    target="_blank"
-                    rel="noreferrer"
-                    title="LinkedIn"
-                    className={`p-2.5 rounded-lg border transition-all duration-300 ${
+                    title="LinkedIn: linkedin.com/in/isamuhammad"
+                    className={`p-2.5 rounded-xl border transition-all duration-300 ${
                       theme === "dark"
                         ? "bg-slate-900/90 border-slate-800 text-cyan-400 hover:border-cyan-500 hover:bg-cyan-950/40"
                         : "bg-white border-slate-200 text-cyan-600 hover:border-cyan-300 shadow-xs"
@@ -777,11 +846,24 @@ export default function PortfolioPage() {
                     <Linkedin className="w-4 h-4" />
                   </a>
                   <a
+                    href="https://github.com/isamuha36"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="GitHub: github.com/isamuha36"
+                    className={`p-2.5 rounded-xl border transition-all duration-300 ${
+                      theme === "dark"
+                        ? "bg-slate-900/90 border-slate-800 text-slate-200 hover:border-slate-500 hover:bg-slate-800"
+                        : "bg-white border-slate-200 text-slate-800 hover:border-slate-400 shadow-xs"
+                    }`}
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
+                  <a
                     href="https://instagram.com/ismhmmd_"
                     target="_blank"
                     rel="noreferrer"
-                    title="Instagram"
-                    className={`p-2.5 rounded-lg border transition-all duration-300 ${
+                    title="Instagram: @ismhmmd_"
+                    className={`p-2.5 rounded-xl border transition-all duration-300 ${
                       theme === "dark"
                         ? "bg-slate-900/90 border-slate-800 text-pink-400 hover:border-pink-500 hover:bg-pink-950/40"
                         : "bg-white border-slate-200 text-pink-600 hover:border-pink-300 shadow-xs"
@@ -793,7 +875,7 @@ export default function PortfolioPage() {
               </div>
             </motion.div>
 
-            {/* Right Card: User Profile Photo */}
+            {/* Right Card: User Profile Photo & High-Impact Stat Cards */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -839,56 +921,69 @@ export default function PortfolioPage() {
                     </div>
                   </div>
 
-                  {/* Dynamic Color Highlights Grid */}
+                  {/* Dynamic Color Highlights Grid (UPDATED FROM CV) */}
                   <div className="grid grid-cols-2 gap-3 pt-1">
+                    {/* Stat 1: IPK / GPA */}
                     <div
-                      className={`p-3 rounded-xl border transition-colors duration-500 ${
+                      className={`p-3.5 rounded-xl border transition-colors duration-500 ${
                         theme === "dark"
                           ? "bg-indigo-950/40 border-indigo-800/60"
                           : "bg-indigo-50/80 border-indigo-200"
                       }`}
                     >
-                      <div className="text-xl font-bold text-indigo-500 dark:text-indigo-400">6+</div>
-                      <div className="text-[11px] text-indigo-900 dark:text-slate-300 font-medium">
-                        Major Tech Projects
+                      <div className="text-xl font-extrabold text-indigo-500 dark:text-indigo-400 flex items-baseline gap-1">
+                        3.82 <span className="text-xs font-normal text-slate-500 dark:text-slate-400">/ 4.00</span>
+                      </div>
+                      <div className="text-[11px] text-indigo-950 dark:text-slate-300 font-semibold mt-0.5">
+                        Bachelor&apos;s GPA UGM
                       </div>
                     </div>
+
+                    {/* Stat 2: Major Tech Projects */}
                     <div
-                      className={`p-3 rounded-xl border transition-colors duration-500 ${
+                      className={`p-3.5 rounded-xl border transition-colors duration-500 ${
                         theme === "dark"
                           ? "bg-purple-950/40 border-purple-800/60"
                           : "bg-purple-50/80 border-purple-200"
                       }`}
                     >
-                      <div className="text-xl font-bold text-purple-500 dark:text-purple-400">2</div>
-                      <div className="text-[11px] text-purple-900 dark:text-slate-300 font-medium">
-                        UGM Lab Assistant Roles
+                      <div className="text-xl font-extrabold text-purple-500 dark:text-purple-400">
+                        8+
+                      </div>
+                      <div className="text-[11px] text-purple-950 dark:text-slate-300 font-semibold mt-0.5">
+                        Major Tech Projects
                       </div>
                     </div>
+
+                    {/* Stat 3: Lab Assistant Roles */}
                     <div
-                      className={`p-3 rounded-xl border transition-colors duration-500 ${
+                      className={`p-3.5 rounded-xl border transition-colors duration-500 ${
                         theme === "dark"
                           ? "bg-cyan-950/40 border-cyan-800/60"
                           : "bg-cyan-50/80 border-cyan-200"
                       }`}
                     >
-                      <div className="text-xl font-bold text-cyan-500 dark:text-cyan-400">15+</div>
-                      <div className="text-[11px] text-cyan-900 dark:text-slate-300 font-medium">
-                        Languages & Tools
+                      <div className="text-xl font-extrabold text-cyan-500 dark:text-cyan-400">
+                        2 Roles
+                      </div>
+                      <div className="text-[11px] text-cyan-950 dark:text-slate-300 font-semibold mt-0.5">
+                        UGM Lab Assistant
                       </div>
                     </div>
+
+                    {/* Stat 4: Prestigious Scholarships */}
                     <div
-                      className={`p-3 rounded-xl border transition-colors duration-500 ${
+                      className={`p-3.5 rounded-xl border transition-colors duration-500 ${
                         theme === "dark"
                           ? "bg-amber-950/40 border-amber-800/60"
                           : "bg-amber-50/80 border-amber-200"
                       }`}
                     >
-                      <div className="text-xl font-bold text-amber-500 dark:text-amber-400">
-                        Insani
+                      <div className="text-xl font-extrabold text-amber-500 dark:text-amber-400">
+                        2 Awards
                       </div>
-                      <div className="text-[11px] text-amber-900 dark:text-slate-300 font-medium">
-                        Scholarship Awardee
+                      <div className="text-[11px] text-amber-950 dark:text-slate-300 font-semibold mt-0.5">
+                        Insani & Ummah Scholar
                       </div>
                     </div>
                   </div>
@@ -940,38 +1035,64 @@ export default function PortfolioPage() {
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}
             >
-              Menghubungkan fondasi akademis yang kuat dengan pengalaman praktis dalam membangun perangkat lunak modern.
+              Menghubungkan fondasi akademis yang kuat dengan pengalaman praktis dalam membangun perangkat lunak modern dan terstruktur.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Academic Foundation Card */}
-            <div className="glass-card glass-card-hover rounded-2xl p-6 space-y-4 border-l-4 border-l-indigo-500">
-              <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-500 dark:text-indigo-400">
-                <GraduationCap className="w-6 h-6" />
+            <div className="glass-card glass-card-hover rounded-2xl p-6 space-y-4 border-l-4 border-l-indigo-500 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-500 dark:text-indigo-400">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold">Pendidikan</h3>
+                
+                {/* UGM */}
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-indigo-600 dark:text-indigo-400 text-sm">Universitas Gadjah Mada</strong>
+                    <span className="text-[11px] font-mono text-slate-500">Jul 2023 - Present</span>
+                  </div>
+                  <p className="text-xs text-slate-700 dark:text-slate-300 font-medium">
+                    Bachelor&apos;s of Applied Science in Software Engineering Technology
+                  </p>
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400 font-mono font-semibold">
+                    GPA: 3.82 / 4.00
+                  </p>
+                </div>
+
+                {/* SMAIT Ihsanul Fikri */}
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800/80 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-800 dark:text-slate-200 text-xs">SMAIT Ihsanul Fikri, Magelang</strong>
+                    <span className="text-[10px] font-mono text-slate-500">Jul 2020 - Apr 2023</span>
+                  </div>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Math and Science
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold">Pendidikan UGM</h3>
-              <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                <strong className="text-indigo-600 dark:text-indigo-400">Universitas Gadjah Mada</strong> (Jul 2023 - Present)
-                <br />
-                Bachelor&apos;s of Applied Science in Software Engineering Technology.
-              </p>
-              <div className="pt-2 border-t border-slate-200 dark:border-slate-800/80">
+
+              {/* Coursework */}
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800/80">
                 <div className="text-xs font-mono text-slate-500 dark:text-slate-400 mb-2">
                   Relevant Coursework:
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {[
                     "Project Management",
+                    "Software Requirements Engineering",
+                    "Software Development Methods & Models",
+                    "Basic Application Project",
                     "Software Architecture",
-                    "Requirements Engineering",
-                    "Data Structures",
+                    "Software Analysis & Design",
+                    "Algorithms & Data Structures",
                     "Object Oriented Programming",
-                    "Analysis & Design",
                   ].map((course) => (
                     <span
                       key={course}
-                      className={`text-[11px] px-2.5 py-1 rounded-md border font-medium transition-colors duration-500 ${
+                      className={`text-[10px] px-2 py-0.5 rounded-md border font-medium transition-colors duration-500 ${
                         theme === "dark"
                           ? "bg-indigo-950/40 border-indigo-800/60 text-indigo-300"
                           : "bg-indigo-50 border-indigo-200 text-indigo-800"
@@ -985,65 +1106,99 @@ export default function PortfolioPage() {
             </div>
 
             {/* Practical Vision Card */}
-            <div className="glass-card glass-card-hover rounded-2xl p-6 space-y-4 border-l-4 border-l-purple-500">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-500 dark:text-purple-400">
-                <ShieldCheck className="w-6 h-6" />
+            <div className="glass-card glass-card-hover rounded-2xl p-6 space-y-4 border-l-4 border-l-purple-500 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-500 dark:text-purple-400">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold">Prinsip & Visi</h3>
+                <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  Memiliki passion tinggi dalam mempelajari hal-hal baru dan berkontribusi memberikan dampak positif bagi sekitar. 
+                  Ilmu yang diperoleh diyakini harus bermanfaat nyata bagi organisasi, masyarakat, dan industri teknologi.
+                </p>
+                <div className="space-y-2.5 pt-2">
+                  <div className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Performa akademis tinggi (IPK 3.82) dan aktif dalam proyek industri</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Pendekatan analitis berbasis data, SRS, dan PRD komprehensif</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Eksplorasi aktif AI tooling modern (Antigravity, Claude Code, Gemini, n8n)</span>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold">Prinsip & Visi</h3>
-              <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                Memiliki passion tinggi dalam mempelajari hal-hal baru dan berkontribusi memberikan dampak positif bagi sekitar. 
-                Ilmu yang diperoleh diyakini harus bermanfaat bagi diri sendiri dan lingkungan.
-              </p>
-              <div className="space-y-2 pt-2">
-                <div className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Akademis & Organisasi seimbang dengan performa tinggi</span>
-                </div>
-                <div className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Pendekatan analitis berbasis data & software specification</span>
-                </div>
-                <div className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Adaptif terhadap teknologi terkini (AI, Containerization, Frameworks)</span>
-                </div>
+
+              {/* Location & Contact snapshot */}
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-rose-500" />
+                  Purworejo, Indonesia
+                </span>
+                <span className="text-indigo-500 dark:text-indigo-400 font-semibold">
+                  ismhmmd.web.id
+                </span>
               </div>
             </div>
 
             {/* Key Roles Card */}
-            <div className="glass-card glass-card-hover rounded-2xl p-6 space-y-4 border-l-4 border-l-cyan-500">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-500 dark:text-cyan-400">
-                <Briefcase className="w-6 h-6" />
+            <div className="glass-card glass-card-hover rounded-2xl p-6 space-y-4 border-l-4 border-l-cyan-500 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-500 dark:text-cyan-400">
+                  <Briefcase className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold">Fokus Utama</h3>
+                <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  Menggabungkan perspektif teknis rekayasa perangkat lunak dan analisis proses bisnis untuk membangun produk digital berkualitas tinggi.
+                </p>
+                <div className="space-y-3 pt-2">
+                  <div
+                    className={`p-2.5 rounded-xl border flex items-center gap-3 transition-colors duration-500 ${
+                      theme === "dark" ? "bg-indigo-950/40 border-indigo-800/60" : "bg-indigo-50 border-indigo-200"
+                    }`}
+                  >
+                    <Terminal className="w-4 h-4 text-indigo-500 dark:text-indigo-400 shrink-0" />
+                    <div>
+                      <span className="text-xs font-semibold block">Fullstack Web Engineering</span>
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400">Laravel, Next.js, ASP.NET, Prisma</span>
+                    </div>
+                  </div>
+                  <div
+                    className={`p-2.5 rounded-xl border flex items-center gap-3 transition-colors duration-500 ${
+                      theme === "dark" ? "bg-purple-950/40 border-purple-800/60" : "bg-purple-50 border-purple-200"
+                    }`}
+                  >
+                    <Database className="w-4 h-4 text-purple-500 dark:text-purple-400 shrink-0" />
+                    <div>
+                      <span className="text-xs font-semibold block">System Architecture & PRD / SRS</span>
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400">Requirements analysis, ERD, Schema design</span>
+                    </div>
+                  </div>
+                  <div
+                    className={`p-2.5 rounded-xl border flex items-center gap-3 transition-colors duration-500 ${
+                      theme === "dark" ? "bg-cyan-950/40 border-cyan-800/60" : "bg-cyan-50 border-cyan-200"
+                    }`}
+                  >
+                    <Zap className="w-4 h-4 text-cyan-500 dark:text-cyan-400 shrink-0" />
+                    <div>
+                      <span className="text-xs font-semibold block">AI Automation & Workflow Integration</span>
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400">n8n, Gemini API, Claude Code, AI agents</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold">Fokus Utama</h3>
-              <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                Menggabungkan perspektif teknis dan manajerial untuk menghasilkan produk perangkat lunak yang scalable dan handal.
-              </p>
-              <div className="space-y-3 pt-2">
-                <div
-                  className={`p-2.5 rounded-xl border flex items-center gap-3 transition-colors duration-500 ${
-                    theme === "dark" ? "bg-indigo-950/40 border-indigo-800/60" : "bg-indigo-50 border-indigo-200"
-                  }`}
+
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                <a
+                  href="#experience"
+                  className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1"
                 >
-                  <Terminal className="w-4 h-4 text-indigo-500 dark:text-indigo-400" />
-                  <span className="text-xs font-semibold">Fullstack Web Engineering</span>
-                </div>
-                <div
-                  className={`p-2.5 rounded-xl border flex items-center gap-3 transition-colors duration-500 ${
-                    theme === "dark" ? "bg-purple-950/40 border-purple-800/60" : "bg-purple-50 border-purple-200"
-                  }`}
-                >
-                  <Database className="w-4 h-4 text-purple-500 dark:text-purple-400" />
-                  <span className="text-xs font-semibold">System Architecture & Specification (SRS)</span>
-                </div>
-                <div
-                  className={`p-2.5 rounded-xl border flex items-center gap-3 transition-colors duration-500 ${
-                    theme === "dark" ? "bg-cyan-950/40 border-cyan-800/60" : "bg-cyan-50 border-cyan-200"
-                  }`}
-                >
-                  <Zap className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
-                  <span className="text-xs font-semibold">AI Automation & Workflow Integration</span>
-                </div>
+                  <span>Lihat rekam jejak pengalaman</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
@@ -1087,7 +1242,7 @@ export default function PortfolioPage() {
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}
             >
-              Pengalaman nyata dalam industri, kepemimpinan proyek, riset AI, serta pengajaran akademis di UGM.
+              Rekam jejak praktis dalam industri software, magang analis sistem, kepemimpinan proyek, asisten laboratorium UGM, dan inisiatif sosial.
             </p>
           </div>
 
@@ -1098,7 +1253,7 @@ export default function PortfolioPage() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                transition={{ duration: 0.4, delay: idx * 0.04 }}
                 className="glass-card glass-card-hover rounded-2xl p-6 relative flex flex-col justify-between"
               >
                 <div className="space-y-4">
@@ -1184,13 +1339,13 @@ export default function PortfolioPage() {
               <Boxes className="w-3.5 h-3.5" />
               <span>Selected Portfolio</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold">Proyek Portofolio</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold">Proyek Portofolio ({projectsData.length})</h2>
             <p
               className={`text-sm sm:text-base transition-colors duration-500 ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}
             >
-              Eksplorasi proyek-proyek unggulan berdasarkan filter kategori berikut:
+              Eksplorasi proyek-proyek unggulan berdasarkan kategori rekayasa sistem, fullstack, backend, AI automation, dan manajemen proyek:
             </p>
           </div>
 
@@ -1208,7 +1363,7 @@ export default function PortfolioPage() {
                     : "bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300 shadow-xs"
                 }`}
               >
-                {cat}
+                {cat} {cat === "All" && `(${projectsData.length})`}
               </button>
             ))}
           </div>
@@ -1269,7 +1424,7 @@ export default function PortfolioPage() {
                       <span>Detail Spec</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
-                    {project.githubUrl && (
+                    {project.githubUrl ? (
                       <a
                         href={project.githubUrl}
                         target="_blank"
@@ -1279,6 +1434,10 @@ export default function PortfolioPage() {
                         <Github className="w-3.5 h-3.5" />
                         <span>Repo</span>
                       </a>
+                    ) : (
+                      <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
+                        {project.role}
+                      </span>
                     )}
                   </div>
                 </motion.div>
@@ -1316,7 +1475,7 @@ export default function PortfolioPage() {
                   {selectedProject.category} • {selectedProject.year}
                 </span>
                 <h3 className="text-2xl font-extrabold mt-2">{selectedProject.title}</h3>
-                <p className="text-xs font-mono text-indigo-500 dark:text-indigo-400 mt-1">
+                <p className="text-xs font-mono text-indigo-500 dark:text-indigo-400 mt-1 font-semibold">
                   Peran: {selectedProject.role}
                 </p>
               </div>
@@ -1326,7 +1485,7 @@ export default function PortfolioPage() {
               </p>
 
               <div>
-                <h4 className="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-3 tracking-wider">
+                <h4 className="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-3 tracking-wider font-semibold">
                   Key Features & Architecture Highlights:
                 </h4>
                 <ul className="space-y-2">
@@ -1343,7 +1502,7 @@ export default function PortfolioPage() {
               </div>
 
               <div>
-                <h4 className="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-2 tracking-wider">
+                <h4 className="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-2 tracking-wider font-semibold">
                   Technologies Used:
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -1390,7 +1549,7 @@ export default function PortfolioPage() {
         )}
       </AnimatePresence>
 
-      {/* --- SECTION 5: SKILLS & CERTIFICATIONS (FUTURISTIC TECH CONSTELLATION NODE NETWORK PATTERN WITH SEAMLESS BLEND) --- */}
+      {/* --- SECTION 5: SKILLS & CERTIFICATIONS (CONSTELLATION NODE NETWORK PATTERN WITH SEAMLESS BLEND) --- */}
       <section id="skills" className="py-24 relative z-10 pattern-constellation overflow-hidden">
         {/* Seamless Top & Bottom Blending Overlays */}
         <div
@@ -1418,15 +1577,15 @@ export default function PortfolioPage() {
               }`}
             >
               <Code2 className="w-3.5 h-3.5" />
-              <span>Tech Stack & Achievements</span>
+              <span>Tech Stack, Languages & Achievements</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold">Keahlian & Sertifikasi</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold">Keahlian & Prestasi</h2>
             <p
               className={`text-sm sm:text-base transition-colors duration-500 ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}
             >
-              Teknologi, bahasa pemrograman, tools, dan penghargaan yang dikuasai.
+              Teknologi, bahasa pemrograman, tools terkini, penguasaan bahasa, dan beasiswa bergengsi.
             </p>
           </div>
 
@@ -1458,37 +1617,95 @@ export default function PortfolioPage() {
             ))}
           </div>
 
-          {/* Certifications & Award */}
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            <div className="glass-card glass-card-hover rounded-2xl p-6 flex items-start gap-4 border-l-4 border-l-amber-500">
+          {/* Languages Section Card */}
+          <div className="mt-8 glass-card glass-card-hover rounded-2xl p-6 border border-emerald-500/30">
+            <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4 mb-4">
+              <div
+                className={`p-2.5 rounded-xl border transition-colors duration-500 ${
+                  theme === "dark" ? "bg-slate-900 border-slate-800" : "bg-slate-100 border-slate-200"
+                }`}
+              >
+                <Languages className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold">Languages Proficiency</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Kemampuan komunikasi verbal dan tertulis</p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {languageSkills.map((lang) => (
+                <div
+                  key={lang.language}
+                  className={`p-4 rounded-xl border flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] ${lang.badge} ${
+                    theme === "dark" ? "bg-slate-900/50" : "bg-white/80"
+                  }`}
+                >
+                  <div className="text-sm font-bold text-slate-900 dark:text-white">
+                    {lang.language}
+                  </div>
+                  <div className={`text-xs font-mono font-semibold mt-1 ${lang.color}`}>
+                    {lang.level}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Certifications & Prestigious Scholarships */}
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Scholarship 1: Ummah */}
+            <div className="glass-card glass-card-hover rounded-2xl p-5 flex items-start gap-4 border-l-4 border-l-emerald-500">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 dark:text-emerald-400 shrink-0">
+                <Award className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-500 dark:text-emerald-400">
+                  Scholarship
+                </span>
+                <h4 className="text-sm font-bold mt-0.5">Ummah Scholarship Batch 1</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Yayasan Ummah (2026)</p>
+              </div>
+            </div>
+
+            {/* Scholarship 2: Insani */}
+            <div className="glass-card glass-card-hover rounded-2xl p-5 flex items-start gap-4 border-l-4 border-l-amber-500">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 dark:text-amber-400 shrink-0">
                 <Award className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[11px] font-mono text-amber-500 dark:text-amber-400">Awardee</span>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-500 dark:text-amber-400">
+                  Scholarship
+                </span>
                 <h4 className="text-sm font-bold mt-0.5">Insani Scholarship Batch 11</h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">LPI Gema Insani (2025)</p>
               </div>
             </div>
 
-            <div className="glass-card glass-card-hover rounded-2xl p-6 flex items-start gap-4 border-l-4 border-l-indigo-500">
+            {/* Cert 1: Oracle */}
+            <div className="glass-card glass-card-hover rounded-2xl p-5 flex items-start gap-4 border-l-4 border-l-indigo-500">
               <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-500 dark:text-indigo-400 shrink-0">
                 <BookOpen className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[11px] font-mono text-indigo-500 dark:text-indigo-400">Certification</span>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-500 dark:text-indigo-400">
+                  Certification
+                </span>
                 <h4 className="text-sm font-bold mt-0.5">Database Programming with SQL</h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Oracle Academy (Jun 2023)</p>
               </div>
             </div>
 
-            <div className="glass-card glass-card-hover rounded-2xl p-6 flex items-start gap-4 border-l-4 border-l-purple-500">
+            {/* Cert 2: MySkill */}
+            <div className="glass-card glass-card-hover rounded-2xl p-5 flex items-start gap-4 border-l-4 border-l-purple-500">
               <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-500 dark:text-purple-400 shrink-0">
                 <BookOpen className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[11px] font-mono text-purple-500 dark:text-purple-400">Certification</span>
-                <h4 className="text-sm font-bold mt-0.5">Data Visualization for Data Analysis</h4>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-500 dark:text-purple-400">
+                  Certification
+                </span>
+                <h4 className="text-sm font-bold mt-0.5">Data Visualization for Analysis</h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">MySkill Short Class (Jul 2023)</p>
               </div>
             </div>
@@ -1496,7 +1713,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* --- SECTION 6: GOOGLE DOCS LIVE CV PREVIEW (MINIMALIST GRADIENT BACKDROP WITH SEAMLESS BLEND) --- */}
+      {/* --- SECTION 6: LIVE CV PREVIEW (MINIMALIST GRADIENT BACKDROP WITH SEAMLESS BLEND) --- */}
       <section
         id="cv-preview"
         className={`py-24 relative z-10 border-y transition-colors duration-500 overflow-hidden ${
@@ -1525,93 +1742,87 @@ export default function PortfolioPage() {
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>Document View</span>
+              <span>Curriculum Vitae</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold">Live Preview Curriculum Vitae</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold">Live Document Preview</h2>
             <p
               className={`text-sm sm:text-base transition-colors duration-500 ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}
             >
-              Tampilan langsung dokumen CV resmi tanpa perlu mengunduh.
+              Tampilan dokumen CV resmi Isa Muhammad langsung di browser. Anda dapat membaca, membuka di tab baru, maupun mengunduh file PDF.
             </p>
           </div>
 
-          {/* Iframe Container */}
-          <div className="glass-card rounded-2xl overflow-hidden p-2 sm:p-4 border border-slate-200 dark:border-slate-800 shadow-2xl">
+          {/* Iframe & Controls Container */}
+          <div className="glass-card rounded-2xl overflow-hidden p-3 sm:p-5 border border-slate-200 dark:border-slate-800 shadow-2xl">
             <div
-              className={`flex items-center justify-between px-4 py-3 rounded-xl border mb-3 transition-colors duration-500 ${
+              className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-4 py-3 rounded-xl border mb-4 transition-colors duration-500 ${
                 theme === "dark" ? "bg-slate-950 border-slate-800" : "bg-slate-100 border-slate-200"
               }`}
             >
-              <div className="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <div className="flex items-center gap-2.5 text-xs font-mono text-slate-700 dark:text-slate-300 font-medium">
                 <FileText className="w-4 h-4 text-indigo-500 dark:text-indigo-400" />
-                <span>CV-Isa_Muhammad-Juli_2026.pdf</span>
+                <span>CV-Isa Muhammad.pdf (Latest Version)</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                 <a
-                  href="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/edit?usp=sharing"
+                  href="/cv.pdf"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-sm transition-colors"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
-                  <span>Buka di Google Docs</span>
+                  <span>Buka Tab Baru</span>
                 </a>
-              </div>
-            </div>
-
-            {/* Desktop: Show iframe preview */}
-            <div className="hidden md:block relative w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-[8.5/11] min-h-[600px]">
-              <iframe
-                src="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/preview"
-                className="w-full h-full border-0"
-                title="Isa Muhammad CV Preview"
-                allow="autoplay"
-              />
-            </div>
-
-            {/* Mobile: Show action buttons instead of broken iframe */}
-            <div
-              className={`md:hidden flex flex-col items-center justify-center gap-6 rounded-xl border p-8 text-center transition-colors duration-500 ${
-                theme === "dark"
-                  ? "bg-slate-950/80 border-slate-800"
-                  : "bg-white border-slate-200"
-              }`}
-            >
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/25">
-                <FileText className="w-10 h-10 text-white" />
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-lg font-bold">Curriculum Vitae</h3>
-                <p className={`text-sm ${theme === "dark" ? "text-slate-400" : "text-slate-500"}`}>
-                  Buka dokumen CV untuk melihat secara lengkap.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs">
+                <a
+                  href="/CV-Isa Muhammad.pdf"
+                  download="CV-Isa Muhammad.pdf"
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors ${
+                    theme === "dark"
+                      ? "bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800"
+                      : "bg-white border-slate-300 text-slate-800 hover:bg-slate-50"
+                  }`}
+                >
+                  <Download className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Download PDF</span>
+                </a>
                 <a
                   href="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/edit?usp=sharing"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105"
+                  className="text-xs font-mono text-slate-500 hover:text-indigo-500 dark:text-slate-400 dark:hover:text-indigo-400 flex items-center gap-1 transition-colors px-1"
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  <span>Buka CV</span>
-                </a>
-                <a
-                  href="https://docs.google.com/document/d/1ddN1iNVZZYcTGqLvg_mOojrp_OlrA8EersP37NPnWzw/export?format=pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl border text-sm font-semibold transition-all duration-300 hover:scale-105 ${
-                    theme === "dark"
-                      ? "border-slate-700 text-slate-300 hover:bg-slate-800"
-                      : "border-slate-300 text-slate-700 hover:bg-slate-50"
-                  }`}
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Download PDF</span>
+                  <Globe className="w-3 h-3" />
+                  <span>Google Docs</span>
                 </a>
               </div>
+            </div>
+
+            {/* Desktop: Show interactive PDF object/iframe preview */}
+            <div className="relative w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-[8.5/11] min-h-[620px]">
+              <object
+                data="/cv.pdf#toolbar=1&navpanes=0&scrollbar=1"
+                type="application/pdf"
+                className="w-full h-full"
+              >
+                <iframe
+                  src="/cv.pdf"
+                  className="w-full h-full border-0"
+                  title="Isa Muhammad CV Preview"
+                >
+                  <p className="p-8 text-center text-sm text-slate-400">
+                    Browser Anda tidak mendukung preview langsung PDF.{" "}
+                    <a
+                      href="/CV-Isa Muhammad.pdf"
+                      target="_blank"
+                      className="text-indigo-400 underline font-semibold"
+                    >
+                      Klik di sini untuk mengunduh atau membuka file PDF
+                    </a>.
+                  </p>
+                </iframe>
+              </object>
             </div>
           </div>
         </div>
@@ -1647,13 +1858,27 @@ export default function PortfolioPage() {
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}
             >
-              Tertarik untuk berkolaborasi, diskusi proyek, atau tawaran posisi magang/kerja? Silakan hubungi saya melalui saluran berikut.
+              Tertarik untuk berkolaborasi, diskusi proyek rekayasa perangkat lunak, konsultasi sistem, atau tawaran posisi profesional? Silakan hubungi saya melalui saluran berikut.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-8">
             {/* Contact Cards Grid */}
             <div className="lg:col-span-5 space-y-4">
+              {/* Location Card */}
+              <div className="glass-card glass-card-hover rounded-2xl p-5 flex items-center gap-4 border-l-4 border-l-rose-500">
+                <div className="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-500 dark:text-rose-400 shrink-0">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-slate-500 dark:text-slate-400">Domisili / Lokasi</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white">
+                    Purworejo, Jawa Tengah, Indonesia
+                  </div>
+                </div>
+              </div>
+
+              {/* Email Card */}
               <a
                 href="mailto:isamuha36@gmail.com"
                 className="glass-card glass-card-hover rounded-2xl p-5 flex items-center gap-4 block group border-l-4 border-l-indigo-500"
@@ -1669,6 +1894,7 @@ export default function PortfolioPage() {
                 </div>
               </a>
 
+              {/* WhatsApp Card */}
               <a
                 href="https://wa.me/62895365540817"
                 target="_blank"
@@ -1686,8 +1912,9 @@ export default function PortfolioPage() {
                 </div>
               </a>
 
+              {/* LinkedIn Card */}
               <a
-                href="https://linkedin.com/in/isa-muhammad010325"
+                href="https://linkedin.com/in/isamuhammad"
                 target="_blank"
                 rel="noreferrer"
                 className="glass-card glass-card-hover rounded-2xl p-5 flex items-center gap-4 block group border-l-4 border-l-cyan-500"
@@ -1698,11 +1925,12 @@ export default function PortfolioPage() {
                 <div>
                   <div className="text-xs font-mono text-slate-500 dark:text-slate-400">LinkedIn Profile</div>
                   <div className="text-sm font-bold group-hover:text-cyan-500 transition-colors">
-                    linkedin.com/in/isa-muhammad010325
+                    linkedin.com/in/isamuhammad
                   </div>
                 </div>
               </a>
 
+              {/* GitHub Card */}
               <a
                 href="https://github.com/isamuha36"
                 target="_blank"
@@ -1724,6 +1952,7 @@ export default function PortfolioPage() {
                 </div>
               </a>
 
+              {/* Instagram Card */}
               <a
                 href="https://instagram.com/ismhmmd_"
                 target="_blank"
@@ -1766,7 +1995,7 @@ export default function PortfolioPage() {
                   <form onSubmit={handleFormSubmit} className="space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-1.5">
+                        <label className="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-1.5 font-medium">
                           Nama Lengkap *
                         </label>
                         <input
@@ -1783,7 +2012,7 @@ export default function PortfolioPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-1.5">
+                        <label className="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-1.5 font-medium">
                           Email Anda *
                         </label>
                         <input
@@ -1802,7 +2031,7 @@ export default function PortfolioPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-1.5">
+                      <label className="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-1.5 font-medium">
                         Subjek *
                       </label>
                       <input
@@ -1810,7 +2039,7 @@ export default function PortfolioPage() {
                         required
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        placeholder="Topik pesan / tawaran magang"
+                        placeholder="Topik pesan / tawaran proyek / kerjasama"
                         className={`w-full px-4 py-3 rounded-xl border text-xs focus:outline-none focus:border-indigo-500 transition-colors duration-500 ${
                           theme === "dark"
                             ? "bg-slate-950 border-slate-800 text-white placeholder-slate-600"
@@ -1820,7 +2049,7 @@ export default function PortfolioPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono text-slate-400 mb-1.5">
+                      <label className="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-1.5 font-medium">
                         Pesan *
                       </label>
                       <textarea
@@ -1859,9 +2088,25 @@ export default function PortfolioPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs font-mono">
-            © 2026 Isa Muhammad. Built with Next.js & Tailwind CSS.
+            © 2026 Isa Muhammad • ismhmmd.web.id • Purworejo, Indonesia
           </div>
           <div className="flex items-center gap-6 text-xs">
+            <a
+              href="https://linkedin.com/in/isamuhammad"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-indigo-500 transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/isamuha36"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-indigo-500 transition-colors"
+            >
+              GitHub
+            </a>
             <a href="#hero" className="hover:text-indigo-500 transition-colors">
               Back to top ↑
             </a>
